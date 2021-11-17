@@ -3,9 +3,11 @@ package com.stopka.giftsrandomizer;
 import com.stopka.giftsrandomizer.match.Matcher;
 import com.stopka.giftsrandomizer.model.Person;
 import com.stopka.giftsrandomizer.utils.Printer;
+import com.stopka.giftsrandomizer.utils.Writer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,6 +33,11 @@ public class GiftsRandomizerApplication {
 
 		List<Person> resultsOfGiftsAssigning = new Matcher().matchGifts(personList);
 		Printer.printResults(resultsOfGiftsAssigning);
+		try {
+			Writer.writeIntotFile(resultsOfGiftsAssigning);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

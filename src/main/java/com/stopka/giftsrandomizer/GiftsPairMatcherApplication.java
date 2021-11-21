@@ -12,10 +12,10 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
-public class GiftsRandomizerApplication {
+public class GiftsPairMatcherApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GiftsRandomizerApplication.class, args);
+		SpringApplication.run(GiftsPairMatcherApplication.class, args);
 		init();
 	}
 

@@ -17,9 +17,9 @@ public class PairsGiftsService {
     @Autowired
     private Matcher matcher;
 
-    public PairsResponse createLotter(List<Person> personList) {
+    public PairsResponse createLottery(List<Person> personList) {
         List<Person> personsMatchedWithGifts = matcher.matchGifts(personList);
-        Lottery lottery = lotteryService.createLotter(personsMatchedWithGifts);
+        Lottery lottery = lotteryService.createLottery(personsMatchedWithGifts);
         return new PairsResponse(lottery);
     }
 }

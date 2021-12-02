@@ -14,7 +14,7 @@ public class LotteryService {
     @Autowired
     private LotteryRepository lotteryRepository;
 
-    public Lottery createLotter(List<Person> personList) {
+    public Lottery createLottery(List<Person> personList) {
         return new Lottery(1l, personList, new BigDecimal(40), 1l);
     }
 

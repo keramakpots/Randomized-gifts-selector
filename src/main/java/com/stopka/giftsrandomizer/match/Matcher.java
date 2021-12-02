@@ -32,13 +32,22 @@ public class Matcher {
 
     private List<Person> getListOfOthers(List<Person> personList, Person p) {
         List<Person> others = new ArrayList<>();
+        boolean isEveryoneAssigned = true;
         for (Person otherPerson : personList) {
             if (isNotSamePerson(p, otherPerson) && otherPerson.getReceiving() == null) {
                 others.add(otherPerson);
+                isEveryoneAssigned = false;
             }
         }
+//        List<Person> verifiedList = checkedIfNoPair(isEveryoneAssigned, others);
         return others;
     }
+
+//    private List<Person> checkedIfNoPair(boolean isEveryoneAssigned, List<Person> others) {
+//        if(isEveryoneAssigned) {
+//            throw new
+//        }
+//    }
 
     private void assignGift(List<Person> sharedGiftsList, Person p, Person person) {
         if (person.getReceiving() == null && isNotSamePerson(p, person) && isNotGivingSameAsReceiving(p, person)) {

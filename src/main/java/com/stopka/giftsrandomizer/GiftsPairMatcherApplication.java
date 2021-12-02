@@ -20,16 +20,17 @@ public class GiftsPairMatcherApplication {
 	}
 
 	public static void init() {
-		List<Person> personList = Arrays.asList(new Person("John", "Stopka"),
-				new Person("Jane", "Stopka"),
-				new Person("Josephine", "Stopka"),
-				new Person("Janet", "Stopka"),
-				new Person("Warner", "Stopka"),
+		List<Person> personList = Arrays.asList(new Person("Judyta", "Stopka"),
 				new Person("Marek", "Stopka"),
-				new Person("Anton", "Stopka"),
-				new Person("Juliusz", "Stopka"),
-				new Person("Kornel", "Stopka"),
-				new Person("Adam", "Stopka"));
+				new Person("Bożena", "Sałek"),
+				new Person("Otylia", "Sałek"),
+				new Person("Wojciech", "Sałek"),
+				new Person("Jakub", "Sałek"),
+				new Person("Małgorzata", "Michna"),
+				new Person("Alina", "Deluga"),
+				new Person("Tomasz", "Michna"),
+				new Person("Krystyna", "Deluga"),
+				new Person("Henryk", "Deluga"));
 
 		List<Person> resultsOfGiftsAssigning = new Matcher().matchGifts(personList);
 		Printer.printResults(resultsOfGiftsAssigning);

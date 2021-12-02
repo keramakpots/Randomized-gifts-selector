@@ -17,7 +17,7 @@ public class GiftsPairMatcherController {
 
     @PostMapping(path = "pair")
     public PairsResponse pairPersonWithGifts(@RequestBody List<Person> persons) {
-        return pairsGiftsService.createLotter(persons);
+        return pairsGiftsService.createLottery(persons);
     }
 
 

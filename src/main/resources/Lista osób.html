@@ -3,59 +3,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title>Good Thymes Virtual Grocery</title>
+  <title>Dobieracz par prezentowych</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
   <link href="../../../css/gtvg.css" media="all" rel="stylesheet" th:href="@{/css/gtvg.css}" type="text/css"/>
 </head>
 
 <body>
 
-<h1>Product list</h1>
+<form action="#" method="post" th:action="@{/gifts}" th:object="${wrapper}">
 
-<table>
-  <thead>
-  <tr>
-    <th>NAME</th>
-    <th>PRICE</th>
-    <th>IN STOCK</th>
-    <th>COMMENTS</th>
-  </tr>
-  </thead>
-  <tbody th:remove="all-but-first">
-  <tr th:class="${prodStat.odd}? 'odd'" th:each="prod : ${prods}">
-    <td th:text="${prod.name}">Onions</td>
-    <td th:text="${prod.price}">2.41</td>
-    <td th:text="${prod.inStock}? #{true} : #{false}">yes</td>
-    <td>
-      <span th:text="${#lists.size(prod.comments)}">2</span> comment/s
-      <a href="comments.html"
-         th:href="@{/product/comments(prodId=${prod.id})}"
-         th:unless="${#lists.isEmpty(prod.comments)}">view</a>
-    </td>
-  </tr>
-  <tr class="odd">
-    <td>Blue Lettuce</td>
-    <td>9.55</td>
-    <td>no</td>
-    <td>
-      <span>0</span> comment/s
-    </td>
-  </tr>
-  <tr>
-    <td>Mild Cinnamon</td>
-    <td>1.99</td>
-    <td>yes</td>
-    <td>
-      <span>3</span> comment/s
-      <a href="comments.html">view</a>
-    </td>
-  </tr>
-  </tbody>
-</table>
-
-<p>
-  <a href="../home.html" th:href="@{/}">Return to home</a>
-</p>
+  <table class="table table-bordered table-hover table-striped"
+         th:with="persons = ${ {'name':'Marek', 'surname':'Stopka'} }">
+    <thead>
+    <tr>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person, stat : ${persons}">
+      <td><input th:name="|persons[${stat.index}].name|" th:value="${person.getName()}"
+                 type="text"/></td>
+      <td><input th:name="|persons[${stat.index}].surname|" th:value="${person.getSurname()}"
+                 type="text"/></td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success" type="submit" value="submit">Zrób losowanie</button>
+</form>
 
 </body>
 

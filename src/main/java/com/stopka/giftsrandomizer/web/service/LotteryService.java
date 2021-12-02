@@ -15,7 +15,7 @@ public class LotteryService {
     private LotteryRepository lotteryRepository;
 
     public Lottery createLottery(List<Person> personList) {
-        return new Lottery(1l, personList, new BigDecimal(40), 1l);
+        return lotteryRepository.save(new Lottery(1l, personList, new BigDecimal(40), 1l));
     }
 
 }

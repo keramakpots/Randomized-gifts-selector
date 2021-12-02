@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController(value = "gifts")
+@RestController(value = "/gifts")
 public class GiftsPairMatcherController {
     @Autowired
     private PairsGiftsService pairsGiftsService;
 
-    @PostMapping(path = "pair")
+    @PostMapping
     public PairsResponse pairPersonWithGifts(@RequestBody List<Person> persons) {
         return pairsGiftsService.createLottery(persons);
     }

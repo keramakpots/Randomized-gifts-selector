@@ -8,12 +8,12 @@ import java.util.List;
 
 public abstract class Writer {
 
-    public static void writeIntotFile(List<Person> results) throws IOException {
+    public static void writeIntoFile(List<Person> results) throws IOException {
         FileWriter fw = new FileWriter("family.txt");
 
-        fw.write("|Daje   |  Otrzymuje   |");
+        fw.write("|Daje   |  Otrzymuje   |\n");
         for (Person p : results) {
-            fw.write("|  " + p.getName() + " |  " + p.getGiving().getName() + "  |");
+            fw.write("|  " + p.getName() + " |  " + p.getGiving().getName() + "  |\n");
         }
         fw.write("|__________|__________");
 
